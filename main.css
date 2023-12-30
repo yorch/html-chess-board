@@ -1,5 +1,3 @@
-/* Styles of a chess board with divs */
-
 .row {
   display: flex;
   flex-direction: row;
@@ -14,26 +12,50 @@
   cursor: pointer;
 }
 
-.square.white {
+.square[data-piece="pawn"]::before {
+  content: "♙";
+}
+
+.square[data-piece="rook"]::before {
+  content: "♖";
+}
+
+.square[data-piece="knight"]::before {
+  content: "♘";
+}
+
+.square[data-piece="bishop"]::before {
+  content: "♗";
+}
+
+.square[data-piece="queen"]::before {
+  content: "♕";
+}
+
+.square[data-piece="king"]::before {
+  content: "♔";
+}
+
+.square[data-color="white"] {
   background-color: rgb(240, 215, 175);
 }
 
-.square.black {
+.square[data-color="black"] {
   background-color: rgb(150, 100, 40);
 }
 
-.square.selected.white {
+.square[data-selected="true"][data-color="black"] {
   background-color: rgb(240, 195, 160);
 }
 
-.square.selected.black {
+.square[data-selected="true"][data-color="black"] {
   background-color: rgb(110, 70, 35);
 }
 
-.square.white-player {
+.square[data-player="white"] {
   color: white;
 }
 
-.square.black-player {
+.square[data-player="black"] {
   color: black;
 }
