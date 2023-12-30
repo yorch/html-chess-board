@@ -44,7 +44,7 @@
   background-color: rgb(150, 100, 40);
 }
 
-.square[data-selected="true"][data-color="black"] {
+.square[data-selected="true"][data-color="white"] {
   background-color: rgb(240, 195, 160);
 }
 
