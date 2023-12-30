@@ -81,8 +81,10 @@ const movePiece = ({ target }) => {
       selectedSquare = null;
     } else {
       // Selecting a piece
-      target.dataset.selected = true;
-      selectedSquare = target;
+      if (target.dataset.piece) {
+        target.dataset.selected = true;
+        selectedSquare = target;
+      }
     }
   }
 };
