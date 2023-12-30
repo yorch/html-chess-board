@@ -62,21 +62,27 @@ const createBoard = (board) => {
 
 let selectedSquare = null;
 
-const selectSquare = ({ target }) => {
-  console.log("Click on board", target);
-
+const movePiece = ({ target }) => {
   if (target.dataset.isSquare) {
     if (selectedSquare === target) {
+      // Unselecting a piece
       target.dataset.selected = false;
       selectedSquare = null;
-      console.log("Unselected", target);
-    } else {
-      if (selectedSquare) {
-        selectedSquare.dataset.selected = false;
+    } else if (selectedSquare) {
+      if (selectedSquare.dataset.player === target.dataset.player) {
+        console.warn("Same player piece, can't move there");
+        return;
       }
+      selectedSquare.dataset.selected = false;
+      target.dataset.piece = selectedSquare.dataset.piece;
+      target.dataset.player = selectedSquare.dataset.player;
+      delete selectedSquare.dataset.piece;
+      delete selectedSquare.dataset.player;
+      selectedSquare = null;
+    } else {
+      // Selecting a piece
       target.dataset.selected = true;
       selectedSquare = target;
-      console.log("Selected", target);
     }
   }
 };
@@ -89,7 +95,7 @@ const mainFn = () => {
 
   createBoard(board);
 
-  board.onclick = selectSquare;
+  board.onclick = movePiece;
 
   main.appendChild(board);
 };
