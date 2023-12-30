@@ -1,0 +1,39 @@
+/* Styles of a chess board with divs */
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.square {
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 1.9rem;
+  cursor: pointer;
+}
+
+.square.white {
+  background-color: rgb(240, 215, 175);
+}
+
+.square.black {
+  background-color: rgb(150, 100, 40);
+}
+
+.square.selected.white {
+  background-color: rgb(240, 195, 160);
+}
+
+.square.selected.black {
+  background-color: rgb(150, 80, 25);
+}
+
+.square.white-player {
+  color: white;
+}
+
+.square.black-player {
+  color: black;
+}
